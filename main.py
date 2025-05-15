@@ -40,3 +40,15 @@ def handle_photo(message):
         bot.send_message(chat_id, "আপনার ফলো কনফার্ম হয়েছে, ধন্যবাদ! আপনার লিংক: tg://join?invite=hJOtpJ1_uNBmMWI0 ")
     else:
         bot.reply_to(message, "আপনার ফলো আগেই নিশ্চিত হয়েছে।")
+
+@app.route('/', methods=['GET', 'POST'])
+def webhook():
+    if request.method == 'POST':
+        bot.process_new_updates([telebot.types.Update.de_json(request.stream.read().decode("utf-8"))])
+        return "OK", 200
+    else:
+        return "Bot is running", 200
+
+if __name__ == "__main__":
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host="0.0.0.0", port=port)
