@@ -37,7 +37,7 @@ def handle_photo(message):
 
         user_states[chat_id] = 'verified'
         bot.reply_to(message, "আমরা আপনার স্ক্রিনশট পেয়েছি এবং ফলো নিশ্চিত করেছি।")
-        bot.send_message(chat_id, " আপনার লিংক: \n👉 tg://join?invite=hJOtpJ1_uNBmMWI0 👈")
+        bot.send_message(chat_id, " আপনার লিংক: \n👉 thanks 👈")
     else:
         bot.reply_to(message, "আপনার ফলো আগেই নিশ্চিত হয়েছে।")
 
